@@ -18,7 +18,7 @@ async def main():
     msg_box = output()
     put_scrollable(msg_box, height=300, keep_bottom=True)
     nickname = await input("Войти в чат", required=True, placeholder="Ваш login",
-                           validate=lambda n: "Такой ник уже используется!" if n in online_users or n == '📢' else None)
+                           validate=lambda n: None if n in online_users or n == '📢' else None)
     online_users.add(nickname)
 
     chat_msgs.append(('📢', f'`{nickname}` присоединился к чату!'))
